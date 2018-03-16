@@ -26,6 +26,10 @@ class TimersDashboard extends React.Component {
     this.createTimer(timer);
   };
 
+  handleEditFormSubmit = (attr) => {
+    this.updateTimers(attr);
+  };
+
   // Inside TimersDashboard
   handleEditFormSubmit = (attrs) => {
     this.updateTimer(attrs);
