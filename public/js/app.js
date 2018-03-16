@@ -1,5 +1,5 @@
 class TimersDashboard extends React.Component {
-
+  /*
   state = {
     timers: [
       {
@@ -17,6 +17,22 @@ class TimersDashboard extends React.Component {
         runningSince: null,
       },
     ],
+  };
+  */
+
+  state = {
+    timers: [],
+  };
+
+  componentDidMount() {
+    this.loadTimersFromServer();
+    setInterval(this.loadTimersFromServer, 5000);
+  };
+
+  loadTimersFromServer = () => {
+    client.getTimers((serverTimers) => (
+      this.setState({timers: serverTimers})
+    ));
   };
 
   handleStartClick = (timerId) => {
